@@ -36,7 +36,6 @@ function rgb(r, g, b) {
 	return arr1.concat(arr2, arr3).join('');
 }
 
-rgb(0,0,0) // returns 000000
 rgb(0, 0, -20) // returns 000000
 rgb(300,255,255) // returns FFFFFF
 rgb(173,255,47) // returns ADFF2Fs
