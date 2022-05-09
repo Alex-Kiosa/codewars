@@ -1,17 +1,7 @@
 "use strict"
 
 function arrayDiff(a, b) {	
-	a.forEach(element => {
-		let index;
-		for(let i = 0; i < b.length; i++) {
-			index = a.indexOf(b[i]);
-			if (index > -1) {
-				a.splice(index, 1);
-			}
-		}
-	});
-
-	return a;
+	return a.filter(element => b.indexOf(element) == -1);
 }
 
 console.log(arrayDiff([3,1,2], [1]), [3,2], "a was [3,1,2], b was [1]");
