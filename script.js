@@ -61,20 +61,61 @@ function landPerimeter(arr) {
 console.log(landPerimeter(["OXOOOX", "OXOXOO", "XXOOOX", "OXXXOO", "OOXOOX", "OXOOOO", "OOXOOX", "OOXOOO", "OXOOOO", "OXOOXX"])); // Total land perimeter: 60
 console.log(landPerimeter(["OXOOO", "OOXXX", "OXXOO", "XOOOO", "XOOOO", "XXXOO", "XOXOO", "OOOXO", "OXOOX", "XOOOO", "OOOXO"])); // Total land perimeter: 52*/
 
-function getFactorial(n) {
-    // variant 1
-    /*let result = 1
-    for (let i = 1; i <= n; i++) {
-        result = i * result
-    }
-    return result*/
 
-    // variant 2 with recursion
-    if (n === 0 | n === 1) {
+/* ====== 3. Get factorial ======
+/*
+function getFactorial(n) {
+    if (n === 0 || n === 1) { // базовый случай
         return 1
-    } else {
-        return getFactorial(n-1) * n
+    } else { // рекурсивный случай, шаг рекурсии
+        return getFactorial(n - 1) * n
     }
 }
 
-console.log(getFactorial(98))
+console.log(getFactorial(98))*/
+
+
+/* ====== 3. Get factorial ======
+let company = {
+    sales: [{
+        name: 'John',
+        salary: 1000
+    }, {
+        name: 'Alice',
+        salary: 600
+    }],
+
+    development: {
+        sites: [{
+            name: 'Peter',
+            salary: 2000
+        }, {
+            name: 'Alex',
+            salary: 1800
+        }],
+
+        internals: [{
+            name: 'Jack',
+            salary: 1300
+        }]
+    }
+}
+
+function sumSalaries(department) {
+    // базовый случай
+    if (Array.isArray(department)) {
+        let sum = 0;
+        for (let i = 0; i < department.length; i++) {
+            sum += department[i].salary
+        }
+        return sum
+    } else { // шаг рекурсии
+        let sum = 0;
+        for (let key in department) {
+            sum += sumSalaries(department[key])
+        }
+        return sum
+    }
+}
+
+console.log(sumSalaries(company))*/
