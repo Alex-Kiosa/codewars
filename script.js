@@ -122,19 +122,111 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
 }*/
 
 // ====== 9. Simple Pig Latin ======
-function pigIt(str){
-    const arr = str.split(' ')
-    for (let i = 0; i < arr.length; i++) {
-        if(!/[^\w\s]/.test(arr[i])) {
-            arr[i] = arr[i].substring(1, arr[i].length) + arr[i][0] + 'ay'
-        }
+// function pigIt(str){
+//     const arr = str.split(' ')
+//     for (let i = 0; i < arr.length; i++) {
+//         if(!/[^\w\s]/.test(arr[i])) {
+//             arr[i] = arr[i].substring(1, arr[i].length) + arr[i][0] + 'ay'
+//         }
+//     }
+//
+//     // const arr = str.split(' ').map((element) => element = element.substring(1, element.length) + element[0] + 'ay')
+//
+//     return arr.join(' ')
+// }
+//
+// console.log(pigIt('Pig latin is cool')) //igPay atinlay siay oolcay
+// console.log(pigIt('This is my string')) //hisTay siay ymay tringsay
+// console.log(pigIt('Hello world !')) //elloHay orldway !
+
+
+// ====== 10. Simple convert list of ips to JSON format  ======
+// function convertIpToJSON(str) {
+//     return {
+//         "hostname": `${str}`,
+//         "ip": `${str}`
+//     }
+// }
+//
+// const arr = [
+//     "31.13.24.0",
+//     "31.13.64.0",
+//     "31.13.64.0",
+//     "31.13.69.0",
+//     "31.13.70.0",
+//     "31.13.71.0",
+//     "31.13.72.0",
+//     "31.13.73.0",
+//     "31.13.75.0",
+//     "31.13.76.0",
+//     "31.13.77.0",
+//     "31.13.78.0",
+//     "31.13.79.0",
+//     "31.13.80.0",
+//     "66.220.144.0",
+//     "66.220.144.0",
+//     "66.220.149.11",
+//     "66.220.152.0",
+//     "66.220.158.11",
+//     "66.220.159.0",
+//     "69.63.176.0",
+//     "69.63.176.0",
+//     "69.63.184.0",
+//     "69.171.224.0",
+//     "69.171.224.0",
+//     "69.171.224.37",
+//     "69.171.229.11",
+//     "69.171.239.0",
+//     "69.171.240.0",
+//     "69.171.242.11",
+//     "69.171.255.0",
+//     "74.119.76.0",
+//     "173.252.64.0",
+//     "173.252.70.0",
+//     "173.252.96.0",
+//     "204.15.20.0",
+// ]
+//
+// console.log(arr.map(e => convertIpToJSON(e)))
+
+
+// ====== 11. (Ready for) Prime Time. Version 1  (optimized algorithm)  ======
+function prime(num) {
+    if (num === 1) return []
+
+    // create result array
+    let primes = []
+
+    // create array for map function
+    let arr = []
+    for (let i = 2; i <= num; i++) {
+        arr.push(i)
     }
 
-    // const arr = str.split(' ').map((element) => element = element.substring(1, element.length) + element[0] + 'ay')
+    // finding Prime dividers of all numbers in arr
+    // all possible variants finding in https://habr.com/ru/articles/468833/
+    arr.map(num => {
+        // get all Prime dividers for number
+        let dividers = [1, num]
+        for (let i = 2; i < Math.round(num ** 0.5) + 1; i++) {
+            if (num % i === 0) {
+                dividers.push(i)
+                dividers.push(num / i)
+            }
+        }
+        if (dividers.length === 2) primes.push(num)
+    })
 
-    return arr.join(' ')
+    return primes
 }
 
-console.log(pigIt('Pig latin is cool')) //igPay atinlay siay oolcay
-console.log(pigIt('This is my string')) //hisTay siay ymay tringsay
-console.log(pigIt('Hello world !')) //elloHay orldway !
+// ====== 11. (Ready for) Prime Time. Version 2  (using recursion)  ======
+
+console.log('Prime dividers for 1 - ' + prime(1))
+console.log('Prime dividers for 2 - ' + prime(2))
+console.log('Prime dividers for 11 - ' + prime(11))
+console.log('Prime dividers for 16 - ' + prime(16))
+console.log('Prime dividers for 20 - ' + prime(20))
+console.log('Prime dividers for 23 - ' + prime(23))
+console.log('Prime dividers for 36 - ' + prime(36))
+console.log('Prime dividers for 1000000 - ' + prime(1000000))
