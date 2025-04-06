@@ -191,42 +191,61 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
 
 
 // ====== 11. (Ready for) Prime Time. Version 1  (optimized algorithm)  ======
-function prime(num) {
-    if (num === 1) return []
+// https://www.codewars.com/kata/521ef596c106a935c0000519/solutions/javascript
+// function prime(num) {
+//     if (num === 1) return []
+//
+//     // create result array
+//     let primes = []
+//
+//     // create array for map function
+//     let arr = []
+//     for (let i = 2; i <= num; i++) {
+//         arr.push(i)
+//     }
+//
+//     // finding Prime dividers of all numbers in arr
+//     // all possible variants finding in https://habr.com/ru/articles/468833/
+//     arr.map(num => {
+//         // get all Prime dividers for number
+//         let dividers = [1, num]
+//         for (let i = 2; i < Math.round(num ** 0.5) + 1; i++) {
+//             if (num % i === 0) {
+//                 dividers.push(i)
+//                 dividers.push(num / i)
+//             }
+//         }
+//         if (dividers.length === 2) primes.push(num)
+//     })
+//
+//     return primes
+// }
 
-    // create result array
-    let primes = []
+// // ====== 11. (Ready for) Prime Time. Version 2  (using recursion)  ======
+// function prime(num) {
+//     if (num < 2) return []
+//     const primes = [2]
+//
+//     return primes
+// }
+//
+// console.log('Prime dividers for 1 - ' + prime(1))
+// console.log('Prime dividers for 2 - ' + prime(2))
+// console.log('Prime dividers for 11 - ' + prime(11))
+// console.log('Prime dividers for 16 - ' + prime(16))
+// console.log('Prime dividers for 20 - ' + prime(20))
+// console.log('Prime dividers for 23 - ' + prime(23))
+// console.log('Prime dividers for 36 - ' + prime(36))
+// console.log('Prime dividers for 1000000 - ' + prime(1000000))
 
-    // create array for map function
-    let arr = []
-    for (let i = 2; i <= num; i++) {
-        arr.push(i)
-    }
 
-    // finding Prime dividers of all numbers in arr
-    // all possible variants finding in https://habr.com/ru/articles/468833/
-    arr.map(num => {
-        // get all Prime dividers for number
-        let dividers = [1, num]
-        for (let i = 2; i < Math.round(num ** 0.5) + 1; i++) {
-            if (num % i === 0) {
-                dividers.push(i)
-                dividers.push(num / i)
-            }
-        }
-        if (dividers.length === 2) primes.push(num)
-    })
 
-    return primes
+// 12. Given the string representations of two integers, return the string representation of the sum of those integers.
+//
+// For example:
+//
+// sumStrings('1','2') // => '3'
+
+function sumStrings(a,b) {
+    return BigInt(a) + BigInt(b) + ''
 }
-
-// ====== 11. (Ready for) Prime Time. Version 2  (using recursion)  ======
-
-console.log('Prime dividers for 1 - ' + prime(1))
-console.log('Prime dividers for 2 - ' + prime(2))
-console.log('Prime dividers for 11 - ' + prime(11))
-console.log('Prime dividers for 16 - ' + prime(16))
-console.log('Prime dividers for 20 - ' + prime(20))
-console.log('Prime dividers for 23 - ' + prime(23))
-console.log('Prime dividers for 36 - ' + prime(36))
-console.log('Prime dividers for 1000000 - ' + prime(1000000))
